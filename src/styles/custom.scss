@@ -1,0 +1,111 @@
+
+.bar-1{
+    background-color: $primary;
+}
+.gray {
+    color: $gray;
+}
+.bg-primary {
+    background-color: $primary !important;
+}
+.bg-secondary {
+    background-color: $secondary !important;
+}
+.text-secondary {
+    color: $secondary !important;
+}
+// TITLE
+// các title chuẩn với kích thước theo quy ước của web
+$fontBasicTitle: 20px;
+$sizeTitle: 4px;
+@function fontBasicTitle($px) {
+    @return calc(((#{$px})  * #{$sizeTitle}) + #{$fontBasicTitle});
+ } 
+.title-0 {
+    font-size: 42px;
+    font-weight: bold;
+}
+.title-1 {
+    font-size: fontBasicTitle(4);
+    font-weight: bold;
+}
+.title-2 {
+    font-size: fontBasicTitle(3);
+    font-weight: bold;
+}
+.title-3 {
+    font-size: fontBasicTitle(2);
+    font-weight: bold;
+}
+.title-4 {
+    font-size: fontBasicTitle(1);
+    font-weight: bold;
+}
+.title-5 {
+    font-size: fontBasicTitle(0);
+    font-weight: bold;
+}
+// heading 
+$fontBasic: 10px;
+$size: 2px;
+@function fontBasic($px) {
+    @return calc(((#{$px})  * #{$size}) + #{$fontBasic});
+ }
+.heading-1 {
+    font-size: fontBasic(3) ;
+    font-weight: bold;
+}
+.heading-2 {
+    font-size: fontBasic(2) ;
+    font-weight: bold;
+}
+.subtitle {
+    font-size: fontBasic(1) ;
+    font-weight: bold;
+}
+
+// paragraph 
+.paragraph-1 {
+    font-size: fontBasic(3);
+    font-weight: normal;
+}
+.paragraph-2 {
+    font-size: fontBasic(2);
+    font-weight: normal;
+}
+.callout {
+    font-size: 13px;
+}
+// Button
+
+$borderRadius: 7px;
+.btn-sm {
+    width: 80px;
+    height: 35px;
+    border-radius: $borderRadius;
+    border: none;
+}
+.search-btn-sm {
+    width: 110px;
+    height: 35px;
+    border-radius: $borderRadius;
+    border: none;
+}
+.btn-lg {
+    width: 110px;
+    height: 48px;
+    border-radius: $borderRadius;
+    border: none;
+}
+.search-btn-lg {
+    width: 140px;
+    height: 48px;
+    border-radius: $borderRadius;
+    border: none;
+}
+.search-btn-lg--specify {
+    width: 130px;
+    height: 35px;
+    border-radius: $borderRadius;
+    border: none;
+}
