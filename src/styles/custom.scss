@@ -14,6 +14,7 @@
 .text-secondary {
     color: $secondary !important;
 }
+$text-secondary: $secondary;
 // TITLE
 // các title chuẩn với kích thước theo quy ước của web
 $fontBasicTitle: 20px;
@@ -63,7 +64,6 @@ $size: 2px;
     font-size: fontBasic(1) ;
     font-weight: bold;
 }
-
 // paragraph 
 .paragraph-1 {
     font-size: fontBasic(3);
@@ -73,39 +73,94 @@ $size: 2px;
     font-size: fontBasic(2);
     font-weight: normal;
 }
-.callout {
+.callout1 {
     font-size: 13px;
 }
+.callout {
+    font-size: fontBasic(1);
+}
+.footnote {
+    font-size: $fontBasic;
+}
 // Button
-
 $borderRadius: 7px;
-.btn-sm {
-    width: 80px;
-    height: 35px;
+$iconSize: 1.6em;
+@mixin btn-rounded {
     border-radius: $borderRadius;
     border: none;
+    position: relative;
+}
+// pseudo class
+@mixin btnBefore {
+    position: absolute;
+    content: "\002315";
+    top: calc(50% - (#{$iconSize} / 2)); 
+    left: 15%;
+    transform: rotate(270deg);
+    font-size: $iconSize;
 }
 .search-btn-sm {
+    @include btn-rounded;
     width: 110px;
     height: 35px;
-    border-radius: $borderRadius;
-    border: none;
 }
+.search-btn-sm::before {
+    @include btnBefore;
+}
+.btn-sm {
+    @include btn-rounded;
+    width: 80px;
+    height: 35px;
+}
+.btn-sm.star::after  {
+    content: '\2606';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translateY(25%);
+    font-size: $iconSize;
+    color: $text-secondary;
+    font-weight: bolder;
+}
+
 .btn-lg {
+    @include btn-rounded;
     width: 110px;
     height: 48px;
-    border-radius: $borderRadius;
-    border: none;
 }
 .search-btn-lg {
+    @include btn-rounded;
     width: 140px;
     height: 48px;
-    border-radius: $borderRadius;
-    border: none;
+}
+.search-btn-lg::before {
+    @include btnBefore;
 }
 .search-btn-lg--specify {
+    @include btn-rounded;
     width: 130px;
     height: 35px;
-    border-radius: $borderRadius;
-    border: none;
 }
+.search-btn-lg--specify::before {
+    @include btnBefore;
+}
+// .search-btn-lg--specify::after {
+//     @include btnAfterSm;
+// }
+// .btn-lg::after {
+//     @include btnAfterLg;
+// }
+// .search-btn-lg::after {
+//     @include btnAfterLg;
+// }
+
+// @mixin btnAfterSm {
+//     content: 'Button-S';
+//    @include btnPosition;
+//    right: 10%;
+// }
+// @mixin btnAfterLg {
+//     content: 'Button-L';
+//    @include btnPosition;
+//    right: 20%;
+// }
